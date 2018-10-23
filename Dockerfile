@@ -7,6 +7,7 @@ ENV SCALA_VERSION 2.11
 ENV KAFKA_VERSION 0.10.2.1
 ENV KAFKA_HOME /opt/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION"
 
+RUN yum -y upgrade
 RUN yum -y install wget
 # Install Kafka, Zookeeper and other needed things
 RUN yum update && \
