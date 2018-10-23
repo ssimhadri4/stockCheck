@@ -8,10 +8,10 @@ ENV KAFKA_VERSION 0.10.2.1
 ENV KAFKA_HOME /opt/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION"
 
 # Install Kafka, Zookeeper and other needed things
-RUN apt-get update && \
-    apt-get install -y zookeeper wget supervisor dnsutils && \
+RUN yum update && \
+    yum install -y zookeeper wget supervisor dnsutils && \
     rm -rf /var/lib/apt/lists/* && \
-    apt-get clean && \
+    yum clean && \
     wget -q http://apache.mirrors.spacedump.net/kafka/"$KAFKA_VERSION"/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION".tgz -O /tmp/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION".tgz && \
     tar xfz /tmp/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION".tgz -C /opt && \
     rm /tmp/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION".tgz
