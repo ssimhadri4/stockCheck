@@ -1,6 +1,6 @@
 # Kafka and Zookeeper
 
-FROM java:openjdk-8-jre
+FROM redhat-openjdk-18/openjdk18-openshift
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV SCALA_VERSION 2.11
