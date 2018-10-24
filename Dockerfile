@@ -6,13 +6,14 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV SCALA_VERSION 2.11
 ENV KAFKA_VERSION 0.10.2.1
 ENV KAFKA_HOME /opt/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION"
+RUN chmod -R 777 /etc/ && chmod -R 777 /var/
 
 RUN     yum -y update && \
     yum -y install wget && \
     yum install -y tar.x86_64 && \
     yum clean all
     
-RUN chmod -R 777 /etc/pki/entitlement-host && chmod -R 777 /var/lib/rpm/
+
 # Install Kafka, Zookeeper and other needed things
 RUN yum update && \
     yum install -y zookeeper wget supervisor dnsutils && \
