@@ -11,6 +11,8 @@ RUN     yum -y update && \
     yum -y install wget && \
     yum install -y tar.x86_64 && \
     yum clean all
+    
+RUN chmod -R 777 /etc/pki/entitlement-host && chmod -R 777 /var/lib/rpm/
 # Install Kafka, Zookeeper and other needed things
 RUN yum update && \
     yum install -y zookeeper wget supervisor dnsutils && \
