@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV SCALA_VERSION 2.11
 ENV KAFKA_VERSION 0.10.2.1
 ENV KAFKA_HOME /opt/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION"
-RUN chmod -R 777 /etc/ && chmod -R 777 /var/
+RUN chmod -R a+r /etc/pki/entitlement-host && chmod -R 777 /var/lib/rpm/
 
 RUN     yum -y update && \
     yum -y install wget && \
